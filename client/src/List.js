@@ -2,11 +2,23 @@ import React from 'react';
 
 const List = props => {
     const listItems = props.items.map(obj =>
-        <li key={obj.id}>{obj.message}</li>
+        <tr key={obj.id}>
+            <th>{obj.message}</th>
+        </tr>
     );
 
     return (
-        <ul>{listItems}</ul>
+        <table style={{ width: "100%" }}>
+            <thead>
+                <tr>
+                    <th>Note</th>
+                </tr>
+            </thead >
+            <tbody>
+                {listItems}
+            </tbody>
+
+        </table>
     )
 }
 

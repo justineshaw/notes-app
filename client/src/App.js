@@ -1,6 +1,18 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import List from './List';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+function AppRouter() {
+  return (
+    <Router>
+      <div>
+        <Route path="/:id" exact component={Match} />
+        <Route path="/" exact component={App} />
+      </div>
+    </Router>
+  );
+}
 
 const App = () => {
   const [apiResponse, setApiResponse] = useState([]);
@@ -74,4 +86,26 @@ const App = () => {
   );
 }
 
-export default App;
+function Match({ match }) {
+  const [apiResponse, setApiResponse] = useState([]);
+
+  useEffect(() => {
+    getFromDB();
+  });
+
+  async function getFromDB() {
+    const res = await fetch("http://localhost:9000/api/" + parseInt(match.params.id))
+    res
+      .json()
+      .then(res => setApiResponse(res));
+      // TODO: catch error if user-inputted index is not available
+  }
+  
+  console.log(apiResponse)
+
+    return (
+      <p>{apiResponse.message}</p>
+    )
+}
+
+export default AppRouter;

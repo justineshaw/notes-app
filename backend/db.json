@@ -6,15 +6,15 @@
     },
     {
       "id": 2,
-      "message": "hellowhats up"
+      "message": "updating item 2"
     },
     {
       "id": 3,
-      "message": "how are you?"
+      "message": "sdfsdf"
     },
     {
       "id": 4,
-      "message": "rawr"
+      "message": "sdgasfasdsds"
     },
     {
       "id": 5,
@@ -23,7 +23,15 @@
     {
       "id": 6,
       "message": "whats up"
+    },
+    {
+      "id": 7,
+      "message": "adding a new item"
+    },
+    {
+      "id": 8,
+      "message": "new itme"
     }
   ],
-  "count": 6
+  "count": 8
 }

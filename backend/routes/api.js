@@ -10,9 +10,17 @@ const db = low(adapter)
 db.defaults({ count: 0, notes: []})
   .write()
 
+/* GET note by id. */
+router.get('/:id', function (req, res, next) {
+  let note = db.get('notes').find({ id: parseInt(req.params.id) }).value();
+  console.log([note]);
+  res.send(note);
+});
+
 /* GET notes. */
 router.get('/', function(req, res, next) {
   let notes = db.get('notes').value();
+  console.log(notes);
   res.send(notes);
 });
 
