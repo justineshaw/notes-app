@@ -3,7 +3,8 @@ var router = express.Router();
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
+const fileName = process.env.NODE_ENV === "test" ? "test-db.json" : "db.json";
+const adapter = new FileSync(fileName);
 const db = low(adapter)
 
 const { check, validationResult } = require('express-validator');
@@ -18,13 +19,10 @@ router.get('/:id', [
 ], function (req, res, next) {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
-    console.log(errors.array());
     return res.status(422).json({ errors: errors.array() })
   }
   
   let note = db.get('notes').find({ id: parseInt(req.params.id) }).value();
-  //res.send(note);
-  console.log(note);
   return res.status(200).json({ message: note });
 });
 
@@ -46,19 +44,18 @@ router.post('/', [
 
   let message = req.body.message 
   let count = db.get('count') + 1
-  db.get('notes')
+  const newNote = db.get('notes')
     .push({ id: count, message: message })
     .write();
   db.update('count', n => n + 1)
     .write();
-  
+
   return res.status(200).json({ message: "Success!" });
 });
 
 /* UPDATE notes. */
 router.put('/', [
   check('message').not().isEmpty().withMessage('The note cannot be an empty string.'),
-  //check('id').isInt({ min: 1, max: db.get('count') }).withMessage('The note is out of index'),
 ], function (req, res, next) {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {

@@ -37,7 +37,6 @@ const App = () => {
 
   const postToDB = (message) => {
     axios.post('http://localhost:9000/api', {
-      id: 1,
       message: message,
     })
       .then(response => {

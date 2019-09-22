@@ -2,103 +2,28 @@
   "notes": [
     {
       "id": 1,
-      "message": "hello world"
+      "message": "sdfcqwe"
     },
     {
-      "id": 2
+      "id": 2,
+      "message": "lowdb is"
     },
     {
       "id": 3,
-      "message": ""
+      "message": "lowdb is awesome"
     },
     {
-      "id": 4
+      "id": 4,
+      "message": "23"
     },
     {
       "id": 5,
-      "message": ""
+      "message": "23234234"
     },
     {
       "id": 6,
-      "message": ""
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10,
-      "message": "dfdfgdfgdfg"
-    },
-    {
-      "id": 11,
-      "message": "dfdfgdfgdfg"
-    },
-    {
-      "id": 12,
-      "message": "hihih"
-    },
-    {
-      "id": 13,
-      "message": "hello world"
-    },
-    {
-      "id": 14,
-      "message": "hello world1"
-    },
-    {
-      "id": 15,
-      "message": "hi"
-    },
-    {
-      "id": 16,
-      "message": "RAWR"
-    },
-    {
-      "id": 17,
-      "message": "RAWR"
-    },
-    {
-      "id": 18,
-      "message": "hello world"
-    },
-    {
-      "id": 19,
-      "message": "hey"
-    },
-    {
-      "id": 20,
-      "message": "hey"
-    },
-    {
-      "id": 21,
-      "message": "hiya"
-    },
-    {
-      "id": 22,
-      "message": "create botw"
-    },
-    {
-      "id": 23,
-      "message": "sd"
-    },
-    {
-      "id": 24,
-      "message": "sdf"
-    },
-    {
-      "id": 25,
-      "message": "sdf"
-    },
-    {
-      "id": 26,
-      "message": "hello world"
+      "message": "23234234"
     }
   ],
-  "count": 26
+  "count": 6
 }
