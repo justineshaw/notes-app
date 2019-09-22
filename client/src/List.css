@@ -1,0 +1,54 @@
+h1 {
+    color:black;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 33%;
+  margin: 0 auto;
+  border-collapse: separate; 
+  border-spacing: 20px;
+  
+}
+
+td, th {
+  text-align: center;
+  padding: 10px; 
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 25px;
+}
+
+thead > tr {
+    background-color:lightgrey;
+}
+
+tr {
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.notEditMode > th > span, .notEditMode .editNote {
+  display: block;
+}
+
+.notEditMode > th > textarea, .notEditMode .saveNote  {
+  display: none;
+}
+
+.editMode > th > span, .editMode .editNote {
+  display: none;
+}
+
+.editMode > th > textarea, .editMode .saveNote {
+  display: block;
+}
+
+small {
+  font-size: 10px;
+  font-weight:100px;
+  cursor: pointer;
+}

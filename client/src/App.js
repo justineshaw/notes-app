@@ -1,7 +1,10 @@
 import React, { useState, useEffect} from 'react';
+import { useAlert } from 'react-alert'
 import axios from 'axios';
 import List from './List';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import './App.css';
 
 function AppRouter() {
   return (
@@ -19,6 +22,7 @@ const App = () => {
   const [message, setMessage] = useState("");
   const [newMessage, setNewMessage] = useState("");
   const [idToUpdate, setIdToUpdate] = useState(0);
+  const alert = useAlert()
 
   useEffect(() => {
     getFromDB();
@@ -35,6 +39,14 @@ const App = () => {
     axios.post('http://localhost:9000/api', {
       id: 1,
       message: message,
+    })
+      .then(response => {
+        if (response.status === 200) {
+          alert.show("Success!", { type: 'success'});
+        }
+      })
+      .catch(error => {
+        alert.show(error.response.data.errors[0].msg, { type: 'error' })
     });
   }
 
@@ -42,14 +54,27 @@ const App = () => {
     axios.put('http://localhost:9000/api', {
       id: idToUpdate,
       message: newMessage,
+    })
+      .then(response => {
+        if (response.status === 200) {
+          alert.show("Success!", { type: 'success' });
+        }
+      })
+  .catch(error => {
+    alert.show(error.response.data.errors[0].msg, { type: 'error' })
+  });
+  }
+
+  const deleteFromDB = (idToDelete) => {
+    console.log("delete from DB app.js")
+    axios.put('http://localhost:9000/api', {
+      id: idToDelete
     });
   }
   
   return (
-    <div className="App">
-      {<List items={apiResponse} />}
-      
-      <div style={{ padding: '10px' }}>
+    <div>
+      <div className="setMessageBar">
         <input
           type="text"
           onChange={(e) => setMessage(e.target.value)}
@@ -61,7 +86,13 @@ const App = () => {
         </button>
       </div>
 
-      <div style={{ padding: '10px' }}>
+      <List 
+        items={apiResponse} 
+        updateDb={(idToUpdate, newMessage) => updateDB(idToUpdate, newMessage)}
+        deleteFromDB={(id) => deleteFromDB(id)}
+      />
+
+      <div className="updateMessageBar">
         <input
           type="text"
           style={{ width: '200px' }}
@@ -88,24 +119,30 @@ const App = () => {
 
 function Match({ match }) {
   const [apiResponse, setApiResponse] = useState([]);
+  const alert = useAlert()
 
-  useEffect(() => {
-    getFromDB();
-  });
-
-  async function getFromDB() {
-    const res = await fetch("http://localhost:9000/api/" + parseInt(match.params.id))
-    res
-      .json()
-      .then(res => setApiResponse(res));
-      // TODO: catch error if user-inputted index is not available
+  const sillyFunction = match => {
+    axios.get("http://localhost:9000/api/" + parseInt(match.params.id), {
+      id: match,
+    })
+      .then(response => {
+        if (response.status === 200) {
+          alert.show("Success!", { type: 'success' });
+          console.log(response.data.message.message);
+          setApiResponse(response.data.message.message);
+        }
+      })
+      .catch(error => {
+        alert.show(error.response.data.errors[0].msg, { type: 'error' })
+        setApiResponse(error.response.data.errors[0].msg);
+      });
   }
-  
-  console.log(apiResponse)
 
-    return (
-      <p>{apiResponse.message}</p>
-    )
+  sillyFunction(match);
+
+  return (
+    <p>{apiResponse}</p>
+  )
 }
 
 export default AppRouter;

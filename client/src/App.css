@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(231, 231, 69);
+}
+
+.setMessageBar, .updateMessageBar {
+    /* background-color: white; */
+    padding: 20px;
+    text-align: center;
+
+}
+
+.setMessageBar > input {
+    border: none;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+:focus {
+  outline: none;
+}
+
+.setMessageBar > button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
