@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import axios from "axios";
+import BoomtownHeader from "../../components/BoomtownHeader/BoomtownHeader";
 
 import "./SingleNote.css";
 
@@ -21,20 +22,33 @@ function SingleNote({ match }) {
         }
       })
       .catch(error => {
-        alert.show("Could not access DB", { type: "error" });
-        setApiResponse(error.response.data.errors[0].msg);
+        setApiResponse("Error: Note Unavailable");
+        if (error.message === "Network Error"){
+          alert.show("Server Is Not Connected", { type: "error" });
+          setApiResponse("Error: Server Is Not Connected");
+        } 
+        else if (error.response.status === 422) {
+          setApiResponse("Error: The ID you requested is not a Note");
+          alert.show("The ID you requested is not a Note", {
+            type: "error"
+          });
+        } else {
+          alert.show("Could not access DB", { type: "error" });
+        }
       });
   };
 
   useEffect(() => {
     getMessageFromDB(match);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   
 
   return (
     <div>
-      <h1>Note at Index {match.params.id}</h1>
+      <BoomtownHeader />
+      <h3>Note at Index {match.params.id}</h3>
       <p>{apiResponse}</p>
     </div>
   );

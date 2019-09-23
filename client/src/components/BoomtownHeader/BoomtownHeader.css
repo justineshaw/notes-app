@@ -1,0 +1,18 @@
+.boomtownHeader {
+    background-color: #363d45;
+    padding: 20px;
+    margin-top: 0px !important;
+}
+
+h1, h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.boom {
+    color: #fb8400;
+}
+
+.notes {
+    color: #3384d0;
+}

@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
 
 .setMessageBar {
     padding: 20px;
@@ -20,7 +24,7 @@
 }
 
 .setMessageBar > button {
-    background-color: #4CAF50;
+    background-color: #fb8400;
     border: none;
     color: white;
     padding: 16px 32px;

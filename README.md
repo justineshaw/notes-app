@@ -4,6 +4,8 @@ By [Justin Shaw](mailto:easyworkemail@gmail.com)
 
 [github.com/justineshaw](https://github.com/justineshaw)
 
+<a href="https://www.youtube.com/watch?v=9XuHW5r782c&feature=youtu.be" target="_blank"><img src="http://img.youtube.com/vi/9XuHW5r782c/0.jpg" alt="real leads" width="240" height="180"/></a>
+
 ## Instructions
 
 1. Navigate to [repo](https://github.com/justineshaw/notes-app)

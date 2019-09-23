@@ -23,7 +23,7 @@ const List = props => {
     
     const noteItems = props.items.map(obj =>
         <tr className="notEditMode" key={obj.id} name={obj.id}>
-            <th>
+            <th className="messageCell">
                 <span>{obj.message}</span>
                 <textarea defaultValue=""></textarea>
             </th>
@@ -46,7 +46,6 @@ const List = props => {
 
     return (
         <div>
-            <h1>Notes</h1>
             <table id="notesTable">
                 <tbody>
                     {noteItems}

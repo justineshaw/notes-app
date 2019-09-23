@@ -5,30 +5,32 @@ h1 {
 }
 
 table {
-  font-family: arial, sans-serif;
+  font-family: sans-serif;
   border-collapse: collapse;
   width: 33%;
   margin: 0 auto;
   border-collapse: separate; 
-  border-spacing: 20px;
+  border-spacing: 5px 20px;
   
 }
 
-td, th {
+.messageCell {
   text-align: center;
   padding: 10px; 
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 5px 5px 5px #363d45;
   border-radius: 25px;
+  background-color: white;
 }
 
-thead > tr {
-    background-color:lightgrey;
-}
-
-tr {
-    background-color: white;
-    padding: 10px;
-    border-radius: 25px;
+.editNote > button, .saveNote > button {
+  background-color:white;
+  padding: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 5px 5px 5px #363d45;
+  font-family: sans-serif;
 }
 
 .notEditMode > th > span, .notEditMode .editNote {

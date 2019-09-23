@@ -2,7 +2,7 @@
   "notes": [
     {
       "id": 1,
-      "message": "hi there"
+      "message": "new note #2"
     },
     {
       "id": 2,
@@ -10,8 +10,28 @@
     },
     {
       "id": 3,
-      "message": "update noted"
+      "message": "a great note"
+    },
+    {
+      "id": 4,
+      "message": "hello world"
+    },
+    {
+      "id": 5,
+      "message": "notes are cool!"
+    },
+    {
+      "id": 6,
+      "message": "a new note"
+    },
+    {
+      "id": 7,
+      "message": "a ne wnote!"
+    },
+    {
+      "id": 8,
+      "message": "new note"
     }
   ],
-  "count": 3
+  "count": 8
 }

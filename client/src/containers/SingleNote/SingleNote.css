@@ -1,7 +1,4 @@
-/* div {
-    width: 75%;
-    margin: 0 auto;
-} */
+
 p {
     width: 50%;
     margin: 0 auto;
@@ -10,5 +7,5 @@ p {
     padding: 10px;
     border-radius: 25px;
     font-weight: bold;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px #363d45;
 }

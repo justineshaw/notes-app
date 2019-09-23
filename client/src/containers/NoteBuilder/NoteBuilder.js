@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import axios from "axios";
 import List from "../../components/List/List";
+import BoomtownHeader from "../../components/BoomtownHeader/BoomtownHeader";
 
 import "./NoteBuilder.css";
 
@@ -13,6 +14,7 @@ const NoteBuilder = () => {
 
   useEffect(() => {
     getFromDB();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getFromDB = () => {
@@ -22,7 +24,12 @@ const NoteBuilder = () => {
         setApiResponse(response.data);
       })
       .catch(error => {
-        alert.show("Could not access DB", { type: "error" });
+        if (error.message === "Network Error") {
+          alert.show("Server Is Not Connected", { type: "error" });
+        }
+        else {
+          alert.show("Could not access DB", { type: "error" });
+        }
       });
   };
 
@@ -38,7 +45,13 @@ const NoteBuilder = () => {
         }
       })
       .catch(error => {
-        alert.show("Could not access DB", { type: "error" });
+        if (error.message === "Network Error") {
+          alert.show("Server Is Not Connected", { type: "error" });
+        } else if (error.response.status === 422) {
+            alert.show("Please Enter A Non-Empty Note", { type: "error" });
+        } else {
+          alert.show("Could not access DB", { type: "error" });
+        }
       });
   };
 
@@ -55,12 +68,19 @@ const NoteBuilder = () => {
         }
       })
       .catch(error => {
-        alert.show("Could not access DB", { type: "error" });
+        if (error.message === "Network Error") {
+          alert.show("Server Is Not Connected", { type: "error" });
+        } else if (error.response.status === 422) {
+          alert.show("Please Enter A Non-Empty Note", { type: "error" });
+        } else {
+          alert.show("Could not access DB", { type: "error" });
+        }
       });
   };
 
   return (
     <div>
+      <BoomtownHeader />
       <div className="setMessageBar">
         <input
           type="text"
