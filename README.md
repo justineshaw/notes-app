@@ -11,7 +11,7 @@ By [Justin Shaw](mailto:easyworkemail@gmail.com)
    `git clone https://github.com/justineshaw/notes-app.git`
 3. Install dependencies using `npm install`
 4. Run tests using `jest` in `backend` directory
-5. Start you app front-end in development mode using `npm start` in `client` directory
+5. Start app front-end in development mode using `npm start` in `client` directory
 6. Start the server using `npm start` in `backend` directory
 7. Navigate to app in [browser](http://localhost:3000/)
 8. Have fun!
@@ -19,9 +19,11 @@ By [Justin Shaw](mailto:easyworkemail@gmail.com)
 ## Discussion
 
 I used the following technologies: HTML, CSS, React, Axios, Jest, 
-Express, Express Validator and Lowdb
+Express, Express Validator and Lowdb.
+
 I used [create-react-app](https://github.com/facebook/create-react-app) 
 to generate the scaffolding for the app front-end.
+
 I used [express-generator](https://www.npmjs.com/package/express) 
 to generate the scaffolding for this server.
 
@@ -31,10 +33,9 @@ to generate the scaffolding for this server.
 
 I used `React`, `Express`, and `Lowdb` to create an app that displays a list of notes that are persisted from a database. The app also offers immediate feedback to users so they know a new note was successfully added to the database.
 
-#### Notes should be persisted and retrieved via a service, where the user can
-#### (1) add a note (2) edit a note and (3) access a note directly via a url.
+#### Notes should be persisted and retrieved via a service, where the user can (1) add a note (2) edit a note and (3) access a note directly via a url.
 
-I built an API that has `GET`, `POST`, and `PUT` endpoints so the `React` frontend can access an endpoint and the server exposed particular methods and data in the database.
+I built an API that has `GET`, `POST`, and `PUT` endpoints so the `React` frontend can access endpoints exposed by the server and access particular data in the database.
 
 ## Stretch Goals!
 
