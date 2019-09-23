@@ -2,6 +2,7 @@ import React from "react";
 
 import "./BoomtownHeader.css";
 
+// Header Component - strictly UI
 const BoomtownHeader = () => {
 
     return (

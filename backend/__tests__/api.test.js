@@ -12,8 +12,8 @@ beforeAll(async () => {
   await db.defaults({ notes: [], count: 0 }).write();
 });
 
+// seed with some data
 beforeEach(async () => {
-  // seed with some data
   let count = db.get('count') + 1;
   await db.get("notes")
     .push({ id: count, message: "test message" })
@@ -21,7 +21,7 @@ beforeEach(async () => {
   db.update("count", n => n + 1).write();
 });
 
-// first test
+// There should be a response with value(s)
 describe("GET /api/1 ", () => {
   test("API responds with the requested note", async () => {
     const response = await request(app).get("/api/1");

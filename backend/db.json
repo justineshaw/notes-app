@@ -2,7 +2,7 @@
   "notes": [
     {
       "id": 1,
-      "message": "new note #2"
+      "message": "edited note"
     },
     {
       "id": 2,
@@ -14,24 +14,8 @@
     },
     {
       "id": 4,
-      "message": "hello world"
-    },
-    {
-      "id": 5,
-      "message": "notes are cool!"
-    },
-    {
-      "id": 6,
-      "message": "a new note"
-    },
-    {
-      "id": 7,
-      "message": "a ne wnote!"
-    },
-    {
-      "id": 8,
-      "message": "new note"
+      "message": "BoomNotes!"
     }
   ],
-  "count": 8
+  "count": 4
 }

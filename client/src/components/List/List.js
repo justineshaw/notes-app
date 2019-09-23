@@ -5,6 +5,7 @@ import './List.css';
 
 const List = props => {
 
+    // Toggle View & Edit Mode For Each Note
     const editNoteToggle = id => {
         let className = document.getElementsByName(id)[0].className;
         if (className === "editMode") {
@@ -21,28 +22,27 @@ const List = props => {
         editNoteToggle(id);
     }
     
-    const noteItems = props.items.map(obj =>
-        <tr className="notEditMode" key={obj.id} name={obj.id}>
-            <th className="messageCell">
-                <span>{obj.message}</span>
-                <textarea defaultValue=""></textarea>
-            </th>
-            <th>
-                <div className="editNote">
-                    <button onClick={() => editNoteToggle(obj.id)}>
-                        EDIT
-                    </button>
-                </div>
+    // Map notes to table rows
+    const noteItems = props.items.map(obj => (
+      <tr className="notEditMode" key={obj.id} name={obj.id}>
+        <th className="messageCell">
+          <span>{obj.message}</span>
+          <textarea defaultValue=""></textarea>
+        </th>
+        <th>
+          <div className="editNote">
+            <button onClick={() => editNoteToggle(obj.id)}>EDIT</button>
+          </div>
 
-                <div className="saveNote">
-                    <button onClick={() => saveNote(obj.id)}>
-                        SAVE
-                    </button>
-                    <small onClick={() => editNoteToggle(obj.id)}>Cancel</small>
-                </div>
-            </th>
-        </tr>
-    );
+          <div className="saveNote">
+            <button onClick={() => saveNote(obj.id)}>SAVE</button>
+            <div>
+              <small onClick={() => editNoteToggle(obj.id)}>Cancel</small>
+            </div>
+          </div>
+        </th>
+      </tr>
+    ));
 
     return (
         <div>
@@ -57,6 +57,7 @@ const List = props => {
     )
 }
 
+// Validate prop types passed to List
 List.propTypes = {
     updateDB: PropTypes.func,
     items: PropTypes.array,

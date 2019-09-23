@@ -4,6 +4,7 @@ import { useAlert } from "react-alert";
 import axios from "axios";
 import List from "../../components/List/List";
 import BoomtownHeader from "../../components/BoomtownHeader/BoomtownHeader";
+import AddNote from "../../components/AddNote/AddNote";
 
 import "./NoteBuilder.css";
 
@@ -17,6 +18,7 @@ const NoteBuilder = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // GET
   const getFromDB = () => {
     axios
       .get("http://localhost:9000/api", {})
@@ -33,7 +35,8 @@ const NoteBuilder = () => {
       });
   };
 
-  const postToDB = message => {
+  // POST
+  const postToDB = () => {
     axios
       .post("http://localhost:9000/api", {
         message: message
@@ -55,6 +58,7 @@ const NoteBuilder = () => {
       });
   };
 
+  // PUT
   const updateDB = (idToUpdate, newMessage) => {
     axios
       .put("http://localhost:9000/api", {
@@ -81,16 +85,10 @@ const NoteBuilder = () => {
   return (
     <div>
       <BoomtownHeader />
-      <div className="setMessageBar">
-        <input
-          type="text"
-          onChange={e => setMessage(e.target.value)}
-          placeholder="add a note"
-          style={{ width: "200px" }}
-        />
-        <button onClick={() => postToDB(message)}>ADD</button>
-      </div>
-
+      <AddNote 
+        setMessage={setMessage} 
+        postToDB={() => postToDB()} 
+      />
       <List
         items={apiResponse}
         updateDb={(idToUpdate, newMessage) => updateDB(idToUpdate, newMessage)}

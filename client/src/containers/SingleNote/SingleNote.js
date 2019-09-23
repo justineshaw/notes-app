@@ -10,6 +10,7 @@ function SingleNote({ match }) {
   const [apiResponse, setApiResponse] = useState([]);
   const alert = useAlert();
 
+  // GET /:id
   const getMessageFromDB = match => {
     axios
       .get("http://localhost:9000/api/" + parseInt(match.params.id), {

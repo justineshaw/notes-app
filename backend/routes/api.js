@@ -26,7 +26,7 @@ router.get('/:id', [
   return res.status(200).json({ message: note });
 });
 
-/* GET notes. */
+/* GET all notes. */
 router.get('/', function(req, res, next) {
   let notes = db.get('notes').value();
   res.send(notes);
