@@ -2,28 +2,16 @@
   "notes": [
     {
       "id": 1,
-      "message": "sdfcqwe"
+      "message": "hi there"
     },
     {
       "id": 2,
-      "message": "lowdb is"
+      "message": "<script>alert(\"you've been pwnd\")</script>"
     },
     {
       "id": 3,
-      "message": "lowdb is awesome"
-    },
-    {
-      "id": 4,
-      "message": "23"
-    },
-    {
-      "id": 5,
-      "message": "23234234"
-    },
-    {
-      "id": 6,
-      "message": "23234234"
+      "message": "update noted"
     }
   ],
-  "count": 6
+  "count": 3
 }

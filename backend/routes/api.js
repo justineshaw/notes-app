@@ -15,7 +15,7 @@ db.defaults({ count: 0, notes: []})
 
 /* GET note by id. */
 router.get('/:id', [
-  check('id').isInt({ min: 1, max: db.get('count') }).withMessage('The note is out of index'),
+  check('id').isInt({ min: 1, max: db.get('count') }).withMessage("Error: The requested note doesn't exist."),
 ], function (req, res, next) {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
@@ -30,6 +30,7 @@ router.get('/:id', [
 router.get('/', function(req, res, next) {
   let notes = db.get('notes').value();
   res.send(notes);
+  // res.json(notes);
 });
 
 /* POST a note. */
@@ -71,12 +72,6 @@ router.put('/', [
     .write();
   
   return res.status(200).json({ message: "Success!" });
-});
-
-/* DELETE note by id. */
-router.delete('/', function (req, res, next) {
-  db.unset('notes')
-    .write()
 });
 
 module.exports = router;

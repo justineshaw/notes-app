@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import './List.css';
 
-// intententionally kept this component stateless
-const list = props => {
+const List = props => {
 
     const editNoteToggle = id => {
         let className = document.getElementsByName(id)[0].className;
@@ -21,11 +20,6 @@ const list = props => {
         props.updateDb(id, newMessage);
         editNoteToggle(id);
     }
-
-    const deleteNote = id => {
-        props.deleteFromDB(id);
-        console.log("deleteFromDB");
-    }
     
     const noteItems = props.items.map(obj =>
         <tr className="notEditMode" key={obj.id} name={obj.id}>
@@ -38,7 +32,6 @@ const list = props => {
                     <button onClick={() => editNoteToggle(obj.id)}>
                         EDIT
                     </button>
-                    <small onClick={() => deleteNote(obj.id)}>Delete</small>
                 </div>
 
                 <div className="saveNote">
@@ -65,10 +58,9 @@ const list = props => {
     )
 }
 
-list.propTypes = {
+List.propTypes = {
     updateDB: PropTypes.func,
-    deleteFromDB: PropTypes.func,
     items: PropTypes.array,
 };
 
-export default list;
+export default List;
